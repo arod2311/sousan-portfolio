@@ -1,0 +1,33 @@
+CM12_CODE,CM12_DESC,CM12_UNIT,CM12_ACTIVE
+1,Delivery,S,1
+2,Regular Pick Up,S,1
+3,Extra Pick Up,S,1
+4,On Call Pick Up,S,1
+5,Removal,S,1
+6,Relocate,S,1
+7,Exchange Container,S,1
+8,Dry Run,S,1
+10,Monthly Service Fee,M,1
+11,Container Rental Fee,M,1
+21,Dump & Return,S,1
+22,Dump & Final,S,1
+23,Dump & Return Flat Rate,S,1
+24,Dump and Final Flat Rate,S,1
+25,Missed Pick up,S,1
+26,Blocked,S,1
+27,Rate per pickup,P,1
+28,LOSS DAMAGE WAIVER,S,0
+29,STORAGE DELIVERY FEE,S,1
+30,STORAGE RETURN FEE,S,1
+31,FUEL SURCHARGE DELIVERY,S,1
+32,FUEL SURCHARGE RETURN,S,1
+33,STORAGE CONTAINER RENTAL,S,0
+34,RETURN,S,1
+35,STORAGE CONTAINER RENTAL,M,1
+36,LOSS DAMAGE WAIVER,M,1
+37,May-2025: Discounted Monthly Service Fee,M,1
+38,Jun-2025: Discounted Monthly Service Fee,M,1
+39,Jul-2025: Discounted Monthly Service Fee,M,1
+40,Milage - Jim Hogg County,M,1
+41,Aug-2025: Discounted Monthly Service Fee,M,1
+99,Milage,S,1

@@ -1,0 +1,28 @@
+flowchart LR
+  Staff["Sheet User (Dispatcher)"] -->|Edit row + InitiateSlip| GAS["Apps Script (Code.js)<br/>onEditHandler<br/>validateRequiredFields<br/>buildPayloadFromRow"]
+  GAS -->|POST /send-service-slip; API key + HMAC| API["API Gateway"]
+  API --> LH["Lambda DocuSignHandler<br/>(aws/docusignHandler/docusign-lambda/index.js)"]
+
+  subgraph Send Slips
+    LH -->|expandServiceSlipRequests| LH2["Loop slips"]
+    LH2 -->|createEnvelope tabs + customFields| DS["DocuSign Templates"]
+    DS --> LH
+    LH -->|setSlipExpected| DDB[(DynamoDB)]
+  end
+
+  Conn["DocuSign Connect"] -->|Completed status updates XML| API
+  API --> LH
+
+  subgraph On Contract Completed
+    LH -->|putObject PDF| S3[(S3)]
+    LH -->|put item| DDB
+    LH -->|appendRowByHeaders| Sheets["Google Sheets API"]
+    LH -->|publish optional| SNS[(SNS)]
+  end
+
+  subgraph On Service Slip Completed
+    LH -->|putObject PDF| S3
+    LH -->|upsertSlipAgg| DDB
+    LH -->|archiveCompletedRowByContract| Sheets
+    LH -->|invoke if final batch| WL["Welcome Email Lambda"]
+  end

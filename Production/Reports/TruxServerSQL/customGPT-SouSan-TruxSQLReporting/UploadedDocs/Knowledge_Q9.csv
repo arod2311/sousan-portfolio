@@ -1,0 +1,9 @@
+column_name,data_type
+CM04_ADTE,smalldatetime
+CM04_EDTE,smalldatetime
+CM04_ETIM,smalldatetime
+CM04_INVNOTEEXPIRES,smalldatetime
+CM04_REINSDATE,smalldatetime
+CM04_STIM,smalldatetime
+CM04_SUSDATE,smalldatetime
+CM04_XDTE,smalldatetime

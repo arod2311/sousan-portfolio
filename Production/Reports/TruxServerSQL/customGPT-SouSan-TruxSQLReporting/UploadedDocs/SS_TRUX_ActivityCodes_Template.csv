@@ -1,0 +1,16 @@
+Code,Description
+01,Delivery
+02,Regular Pick Up
+03,Extra Pick Up
+04,On-Call Pick Up
+05,Removal
+06,Relocate
+07,Exchange Container
+08,Dry Run / No Service
+10,Monthly Fee / Service Charge
+21,Dump & Return (Roll-Off)
+22,Dump & Final (Roll-Off)
+23,Dump & Return Flat (Roll-Off)
+24,Dump & Final Flat (Roll-Off)
+30,Storage Return Fee
+34,RETURN / Returned Container

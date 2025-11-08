@@ -1,0 +1,9 @@
+flowchart TD
+  A["Sales Rep sends contract (New Client)"] --> B["Client signs (remote or in-person)"]
+  B --> C["CS Team generates new Trux Account #"]
+  C --> D["Verifier checks account & services"]
+  D --> E["System records the contract\nAdds a row to the ServiceSlips sheet\nStatus: Pending Slip"]
+  E --> F["Dispatcher chooses driver\nSets Status: Ready for Service Slip\nClicks 'Initiate Slip'"]
+  F --> G["Driver receives email\nCompletes & signs Service Slip"]
+  G --> H["System saves PDF to S3\nMoves row to 'Completed' tab"]
+  H --> I["Welcome Email sent to client\n(Portal links, FAQs, Contact)"]

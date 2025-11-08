@@ -1,0 +1,2791 @@
+{
+    "device": {
+        "lat": 27.50737,
+        "lng": -99.50769,
+        "address": "1202 Houston St\nLaredo, TX 78040",
+        "serial": "Q3FA-TL5J-FUHJ",
+        "mac": "c4:8b:a3:f9:1d:c1",
+        "wan1Ip": "108.224.177.77",
+        "wan2Ip": "172.87.159.42",
+        "url": "https://n320.meraki.com/Southern-Sanitat/n/BemRLdaf/manage/nodes/new_list/216104030510529",
+        "networkId": "L_743093938516145211",
+        "tags": [],
+        "name": "Southern Sanitation",
+        "details": [],
+        "model": "MX75",
+        "firmware": "wired-18-2-11",
+        "floorPlanId": null
+    },
+    "vlans": [
+        {
+            "id": 1,
+            "networkId": "L_743093938516145211",
+            "name": "Default",
+            "applianceIp": "10.0.0.1",
+            "subnet": "10.0.0.0/24",
+            "fixedIpAssignments": {
+                "2c:ea:7f:72:51:98": {
+                    "ip": "10.0.0.44",
+                    "name": "SouSan"
+                },
+                "74:5d:22:4d:63:e3": {
+                    "ip": "10.0.0.48",
+                    "name": "ACanTerminal"
+                },
+                "98:90:96:b2:dd:4c": {
+                    "ip": "10.0.0.47",
+                    "name": "DChaTerminal"
+                },
+                "e4:54:e8:5c:d3:9f": {
+                    "ip": "10.0.0.49",
+                    "name": "JMonTerminal"
+                },
+                "f8:b1:56:d4:d7:22": {
+                    "ip": "10.0.0.151",
+                    "name": "GMS Terminal"
+                }
+            },
+            "reservedIpRanges": [],
+            "dnsNameservers": "upstream_dns",
+            "dhcpHandling": "Run a DHCP server",
+            "dhcpLeaseTime": "1 day",
+            "dhcpBootOptionsEnabled": false,
+            "dhcpOptions": [],
+            "interfaceId": "743093938516446474",
+            "ipv6": {
+                "enabled": false
+            },
+            "mandatoryDhcp": {
+                "enabled": false
+            }
+        },
+        {
+            "id": 3,
+            "networkId": "L_743093938516145211",
+            "name": "SSHConference",
+            "applianceIp": "192.168.3.1",
+            "subnet": "192.168.3.0/24",
+            "fixedIpAssignments": {},
+            "reservedIpRanges": [],
+            "dnsNameservers": "upstream_dns",
+            "dhcpHandling": "Run a DHCP server",
+            "dhcpLeaseTime": "1 day",
+            "dhcpBootOptionsEnabled": false,
+            "dhcpOptions": [],
+            "interfaceId": "743093938516462098",
+            "ipv6": {
+                "enabled": false
+            },
+            "mandatoryDhcp": {
+                "enabled": false
+            }
+        },
+        {
+            "id": 4,
+            "networkId": "L_743093938516145211",
+            "name": "Southern Sanitation - Guest",
+            "applianceIp": "192.168.2.1",
+            "subnet": "192.168.2.0/24",
+            "fixedIpAssignments": {},
+            "reservedIpRanges": [],
+            "dnsNameservers": "upstream_dns",
+            "dhcpHandling": "Run a DHCP server",
+            "dhcpLeaseTime": "1 day",
+            "dhcpBootOptionsEnabled": false,
+            "dhcpOptions": [],
+            "interfaceId": "743093938516448499",
+            "ipv6": {
+                "enabled": false
+            },
+            "mandatoryDhcp": {
+                "enabled": false
+            }
+        },
+        {
+            "id": 20,
+            "networkId": "L_743093938516145211",
+            "name": "Management",
+            "applianceIp": "10.0.20.1",
+            "subnet": "10.0.20.0/24",
+            "fixedIpAssignments": {
+                "2c:ea:7f:72:51:92": {
+                    "ip": "10.0.20.250",
+                    "name": "iDRAC"
+                }
+            },
+            "reservedIpRanges": [],
+            "dnsNameservers": "upstream_dns",
+            "dhcpHandling": "Run a DHCP server",
+            "dhcpLeaseTime": "1 day",
+            "dhcpBootOptionsEnabled": false,
+            "dhcpOptions": [],
+            "interfaceId": "743093938516462866",
+            "ipv6": {
+                "enabled": false
+            },
+            "mandatoryDhcp": {
+                "enabled": false
+            }
+        }
+    ],
+    "l3_firewall_rules": {
+        "rules": [
+            {
+                "comment": "Block IP 45.130.151.229",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.130.151.229/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 141.98.11.35",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "141.98.11.35/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.79.104.47",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.79.104.47/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.109.77.225",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.109.77.225/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 79.110.62.62",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "79.110.62.62/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 95.214.53.205",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "95.214.53.205/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 204.188.228.185",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "204.188.228.185/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 216.218.206.100",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "216.218.206.100/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.224.128.67",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.224.128.67/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 34.159.217.105",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "34.159.217.105/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 46.174.191.32",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "46.174.191.32/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 109.200.199.110",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "109.200.199.110/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.91.127.43",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.91.127.43/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 3.90.180.224",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "3.90.180.224/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 178.128.15.82",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "178.128.15.82/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 95.214.27.140",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "95.214.27.140/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.74.60.48",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.74.60.48/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 80.82.77.202",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "80.82.77.202/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 5.8.11.202",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "5.8.11.202/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.191.23",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.191.23/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 104.209.34.243",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "104.209.34.243/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.252.254",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.252.254/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.208.156.160",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.208.156.160/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 119.184.20.40",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "119.184.20.40/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.232.202",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.232.202/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 80.75.212.9",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "80.75.212.9/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.143.1.40",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.143.1.40/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 31.220.1.88",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "31.220.1.88/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 179.43.133.122",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "179.43.133.122/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.115.119",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.115.119/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.184.14",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.184.14/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 58.16.199.143",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "58.16.199.143/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 78.153.140.178",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "78.153.140.178/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.163.125.121",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.163.125.121/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 5.188.206.66",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "5.188.206.66/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 51.15.114.30",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "51.15.114.30/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.172.208.235",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.172.208.235/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 194.50.16.198",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "194.50.16.198/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 170.187.165.134",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "170.187.165.134/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 143.42.1.44",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "143.42.1.44/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 95.214.55.79",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "95.214.55.79/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 40.77.167.241",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "40.77.167.241/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.200.78.3",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.200.78.3/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.191.126.248",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.191.126.248/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 144.202.82.88",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "144.202.82.88/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.234.216.100",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.234.216.100/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.115.10",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.115.10/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 95.214.55.43",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "95.214.55.43/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.184.16",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.184.16/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 46.23.108.183",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "46.23.108.183/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 139.45.197.154",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "139.45.197.154/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.184.23",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.184.23/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 74.218.220.3",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "74.218.220.3/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.156.129.56",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.156.129.56/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 78.153.140.176",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "78.153.140.176/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 216.218.206.84",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "216.218.206.84/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 104.21.25.238",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "104.21.25.238/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 178.215.238.154",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "178.215.238.154/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.212.141.253",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.212.141.253/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.242.226.80",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.242.226.80/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 118.194.250.60",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "118.194.250.60/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 179.43.191.98",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "179.43.191.98/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.156.129.54",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.156.129.54/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 95.214.27.18",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "95.214.27.18/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 141.98.11.175",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "141.98.11.175/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 195.178.110.57",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "195.178.110.57/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 178.215.238.68",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "178.215.238.68/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.184.43",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.184.43/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 34.38.226.167",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "34.38.226.167/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 165.154.52.132",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "165.154.52.132/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 178.215.238.11",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "178.215.238.11/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.125.126",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.125.126/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 141.76.94.12",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "141.76.94.12/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.202.35.17",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.202.35.17/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 34.79.213.51",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "34.79.213.51/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 119.188.240.22",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "119.188.240.22/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 206.168.34.221",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "206.168.34.221/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 104.21.36.104",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "104.21.36.104/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.242.226.10",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.242.226.10/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.219.238.71",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.219.238.71/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 66.240.192.85",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "66.240.192.85/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 114.34.166.158",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "114.34.166.158/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 157.245.156.205",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "157.245.156.205/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 139.45.197.245",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "139.45.197.245/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 83.222.190.54",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "83.222.190.54/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.233.156",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.233.156/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.219.223.199",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.219.223.199/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 89.248.165.244",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "89.248.165.244/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.237.111.179",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.237.111.179/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 18.195.168.249",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "18.195.168.249/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.94.138.157",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.94.138.157/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 59.126.171.136",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "59.126.171.136/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.187.65",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.187.65/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 35.234.112.208",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "35.234.112.208/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 64.62.197.55",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "64.62.197.55/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 178.215.236.240",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "178.215.236.240/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 216.218.206.125",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "216.218.206.125/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 89.248.163.200",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "89.248.163.200/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 222.216.206.99",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "222.216.206.99/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 4.255.101.76",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "4.255.101.76/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 103.114.104.150",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "103.114.104.150/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 218.75.38.213",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "218.75.38.213/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 80.64.30.107",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "80.64.30.107/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 172.206.140.139",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "172.206.140.139/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 137.74.239.148",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "137.74.239.148/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 59.126.32.3",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "59.126.32.3/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 2.57.122.161",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "2.57.122.161/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 85.90.246.159",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "85.90.246.159/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 97.107.129.181",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "97.107.129.181/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 131.175.55.101",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "131.175.55.101/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 147.185.133.5",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "147.185.133.5/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 188.240.145.90",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "188.240.145.90/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 97.107.129.97",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "97.107.129.97/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 154.213.187.20",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "154.213.187.20/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 95.214.53.91",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "95.214.53.91/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 209.38.33.11",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "209.38.33.11/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.148.10.245",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.148.10.245/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 139.45.197.163",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "139.45.197.163/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 59.126.202.75",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "59.126.202.75/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 83.222.191.130",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "83.222.191.130/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 147.78.47.252",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "147.78.47.252/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.94.138.123",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.94.138.123/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 199.45.155.87",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "199.45.155.87/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.224.128.17",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.224.128.17/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 204.188.228.24",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "204.188.228.24/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 147.185.132.31",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "147.185.132.31/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 52.189.74.154",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "52.189.74.154/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.76.75.143",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.76.75.143/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.84.89.2",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.84.89.2/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 147.185.132.138",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "147.185.132.138/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.94.138.39",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.94.138.39/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 199.45.155.86",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "199.45.155.86/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 64.246.161.26",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "64.246.161.26/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.163.125.120",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.163.125.120/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 70.39.75.187",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "70.39.75.187/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 18.223.104.85",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "18.223.104.85/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.216.87.61",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.216.87.61/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 184.105.247.251",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "184.105.247.251/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 93.174.93.12",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "93.174.93.12/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.148.10.127",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.148.10.127/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.231.80",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.231.80/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 195.230.103.246",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "195.230.103.246/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.163.125.112",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.163.125.112/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.115.50",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.115.50/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.163.125.119",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.163.125.119/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 199.45.154.178",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "199.45.154.178/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 80.66.83.48",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "80.66.83.48/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 171.67.71.209",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "171.67.71.209/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 83.222.190.230",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "83.222.190.230/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.219.237.171",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.219.237.171/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.134.81.86",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.134.81.86/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.211.198.30",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.211.198.30/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.142.236.41",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.142.236.41/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.196.9.30",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.196.9.30/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.222.181.107",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.222.181.107/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 23.239.29.109",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "23.239.29.109/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.139.228.190",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.139.228.190/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.222.226.153",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.222.226.153/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 34.122.147.229",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "34.122.147.229/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 149.50.106.25",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "149.50.106.25/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 188.166.118.24",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "188.166.118.24/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 179.61.253.89",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "179.61.253.89/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 114.34.248.10",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "114.34.248.10/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 120.224.169.28",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "120.224.169.28/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.149.241.114",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.149.241.114/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 114.33.10.137",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "114.33.10.137/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 81.161.238.40",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "81.161.238.40/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.245.119.234",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.245.119.234/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 172.202.177.71",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "172.202.177.71/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.189.182.234",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.189.182.234/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.140.192.46",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.140.192.46/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 64.23.187.11",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "64.23.187.11/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.82.219.179",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.82.219.179/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 109.123.254.15",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "109.123.254.15/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 216.218.206.78",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "216.218.206.78/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 59.127.88.74",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "59.127.88.74/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 8.222.166.37",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "8.222.166.37/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 66.240.205.34",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "66.240.205.34/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.251.160.74",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.251.160.74/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 180.214.239.8",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "180.214.239.8/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 194.180.49.181",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "194.180.49.181/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 34.140.203.88",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "34.140.203.88/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 146.88.240.101",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "146.88.240.101/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 183.131.19.86",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "183.131.19.86/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 1.94.112.53",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "1.94.112.53/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 65.49.1.79",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "65.49.1.79/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 35.244.245.136",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "35.244.245.136/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 45.79.163.72",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "45.79.163.72/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.112.187",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.112.187/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 65.49.1.41",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "65.49.1.41/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 57.152.78.200",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "57.152.78.200/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 193.163.125.115",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "193.163.125.115/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 199.45.155.84",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "199.45.155.84/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 184.105.247.247",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "184.105.247.247/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.113.56",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.113.56/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 94.232.42.62",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "94.232.42.62/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 59.126.140.155",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "59.126.140.155/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 104.40.73.135",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "104.40.73.135/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 51.158.169.40",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "51.158.169.40/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.237.6.119",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.237.6.119/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 151.80.91.223",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "151.80.91.223/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 195.230.103.248",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "195.230.103.248/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.238.252.193",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.238.252.193/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 40.77.167.254",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "40.77.167.254/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 142.93.246.65",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "142.93.246.65/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 220.135.152.48",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "220.135.152.48/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 165.154.118.169",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "165.154.118.169/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 36.138.238.230",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "36.138.238.230/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 122.155.223.101",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "122.155.223.101/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.237.132.128",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.237.132.128/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 148.113.208.45",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "148.113.208.45/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.94.146.18",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.94.146.18/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 78.128.113.130",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "78.128.113.130/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 209.97.170.76",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "209.97.170.76/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.91.127.66",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.91.127.66/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.115.34",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.115.34/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 218.6.155.58",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "218.6.155.58/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 125.228.31.29",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "125.228.31.29/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 195.230.103.243",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "195.230.103.243/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 162.216.18.113",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "162.216.18.113/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 74.50.83.218",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "74.50.83.218/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 52.167.144.20",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "52.167.144.20/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.94.146.24",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.94.146.24/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 92.255.57.60",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "92.255.57.60/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.167.8",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.167.8/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 51.158.205.47",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "51.158.205.47/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 47.236.136.217",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "47.236.136.217/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 172.168.41.87",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "172.168.41.87/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 199.45.154.121",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "199.45.154.121/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 198.199.82.71",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "198.199.82.71/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 35.194.97.106",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "35.194.97.106/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 176.111.174.144",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "176.111.174.144/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.250.151.238",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.250.151.238/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 167.94.146.30",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "167.94.146.30/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 178.215.238.157",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "178.215.238.157/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 70.39.75.173",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "70.39.75.173/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 101.36.97.88",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "101.36.97.88/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 172.169.1.85",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "172.169.1.85/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 51.81.46.195",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "51.81.46.195/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 157.245.69.32",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "157.245.69.32/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 157.15.77.207",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "157.15.77.207/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 60.221.228.127",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "60.221.228.127/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 46.101.206.227",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "46.101.206.227/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 185.85.239.13",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "185.85.239.13/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 206.168.34.160",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "206.168.34.160/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 80.66.76.121",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "80.66.76.121/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 87.120.127.173",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "87.120.127.173/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 172.169.206.157",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "172.169.206.157/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Block IP 34.151.208.99",
+                "policy": "deny",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "34.151.208.99/32",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "AWS SES",
+                "policy": "allow",
+                "protocol": "tcp",
+                "srcPort": "Any",
+                "srcCidr": "OBJ(743093938516134798)",
+                "destPort": "587,25,2587",
+                "destCidr": "OBJ(743093938516134797)",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Authorize",
+                "policy": "allow",
+                "protocol": "tcp",
+                "srcPort": "Any",
+                "srcCidr": "OBJ(743093938516134798)",
+                "destPort": "80",
+                "destCidr": "OBJ(743093938516134799)",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Ubunt",
+                "policy": "allow",
+                "protocol": "any",
+                "srcPort": "Any",
+                "srcCidr": "OBJ(743093938516134834)",
+                "destPort": "Any",
+                "destCidr": "OBJ(743093938516134835)",
+                "syslogEnabled": false
+            },
+            {
+                "comment": "Default rule",
+                "policy": "allow",
+                "protocol": "Any",
+                "srcPort": "Any",
+                "srcCidr": "Any",
+                "destPort": "Any",
+                "destCidr": "Any",
+                "syslogEnabled": false
+            }
+        ]
+    },
+    "l7_firewall_rules": {
+        "rules": [
+            {
+                "policy": "deny",
+                "type": "blockedCountries",
+                "value": [
+                    "AF",
+                    "AU",
+                    "BY",
+                    "BR",
+                    "CN",
+                    "CU",
+                    "HK",
+                    "IN",
+                    "IR",
+                    "JP",
+                    "MY",
+                    "NI",
+                    "NE",
+                    "NG",
+                    "KP",
+                    "PK",
+                    "PS",
+                    "PH",
+                    "RO",
+                    "RU",
+                    "SG",
+                    "KR",
+                    "SS",
+                    "SD",
+                    "SY",
+                    "TW",
+                    "TH",
+                    "UA",
+                    "VN"
+                ]
+            },
+            {
+                "policy": "deny",
+                "type": "applicationCategory",
+                "value": {
+                    "id": "meraki:layer7/category/6",
+                    "name": "Gaming"
+                }
+            },
+            {
+                "policy": "deny",
+                "type": "applicationCategory",
+                "value": {
+                    "id": "meraki:layer7/category/27",
+                    "name": "Advertising"
+                }
+            },
+            {
+                "policy": "deny",
+                "type": "ipRange",
+                "value": "42.117.50.60/32"
+            }
+        ]
+    },
+    "site_to_site_vpn": {
+        "mode": "hub",
+        "hubs": [],
+        "subnets": [
+            {
+                "localSubnet": "10.1.1.0/24",
+                "useVpn": false
+            },
+            {
+                "localSubnet": "10.0.0.0/24",
+                "useVpn": true
+            },
+            {
+                "localSubnet": "192.168.3.0/24",
+                "useVpn": false
+            },
+            {
+                "localSubnet": "192.168.2.0/24",
+                "useVpn": false
+            },
+            {
+                "localSubnet": "10.0.20.0/24",
+                "useVpn": false
+            }
+        ]
+    },
+    "traffic_shaping": {
+        "globalBandwidthLimits": {
+            "limitUp": 0,
+            "limitDown": 0
+        }
+    },
+    "threat_protection": {
+        "mode": "enabled",
+        "allowedUrls": [
+            {
+                "url": "*.googleusercontent.com",
+                "comment": "Google Print Services"
+            },
+            {
+                "url": "*.amazonaws.com",
+                "comment": "AWS"
+            },
+            {
+                "url": "mail.google.com",
+                "comment": "GMail"
+            },
+            {
+                "url": "*.authorize.net",
+                "comment": "Authorize"
+            },
+            {
+                "url": "mail-attachment.googleusercontent.com",
+                "comment": "mailGoogle"
+            },
+            {
+                "url": "googleusercontent.com",
+                "comment": "GoogleUserContent"
+            },
+            {
+                "url": "gmail.com",
+                "comment": "GMail"
+            }
+        ],
+        "allowedFiles": []
+    }
+}

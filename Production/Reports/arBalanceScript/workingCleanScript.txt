@@ -1,0 +1,193 @@
+import pandas as pd
+import os
+import datetime
+from openpyxl.styles import numbers
+
+def process_ar_balance_file():
+    # ----------------------------------------------------------------
+    # 1) Define your input CSV and output folder
+    # ----------------------------------------------------------------
+    file_path = r"C:\Users\arodriguez\Documents\Projects\sousan\Production\arBalanceScript\Files\raw\arBalJan2025.csv"
+    processed_folder = r"C:\Users\arodriguez\Documents\Projects\sousan\Production\arBalanceScript\Files\processed"
+
+    # Construct output filename, e.g. ProcessedARBalancewithMoneyBuckets02132025.xlsx
+    today = datetime.datetime.today()
+    output_filename = (
+        f"ProcessedARBalancewithMoneyBuckets"
+        f"{today.month:02d}{today.day:02d}{today.year}.xlsx"
+    )
+    output_path = os.path.join(processed_folder, output_filename)
+
+    print("Starting AR Balance script...")
+    print("Reading file:", file_path)
+
+    # ----------------------------------------------------------------
+    # 2) Read CSV (header=None so the first row isn't treated as column names)
+    #    dtype=str to keep everything as text initially
+    # ----------------------------------------------------------------
+    df = pd.read_csv(file_path, header=None, dtype=str)
+    print("Initial shape:", df.shape)
+
+    # ----------------------------------------------------------------
+    # 3) Remove columns by index slices
+    # ----------------------------------------------------------------
+    df.drop(df.columns[0:59], axis=1, inplace=True)
+    print("After removing columns 0-59:", df.shape)
+
+    df.drop(df.columns[12:], axis=1, inplace=True)
+    print("After removing columns from index 12 onward:", df.shape)
+
+    df.drop(df.columns[3:5], axis=1, inplace=True)
+    df.drop(df.columns[3], axis=1, inplace=True)
+    print("After additional column drops:", df.shape)
+
+    # ----------------------------------------------------------------
+    # 4) Remove rows with empty first column
+    # ----------------------------------------------------------------
+    df[df.columns[0]] = df[df.columns[0]].fillna('').str.strip()
+    df = df[df[df.columns[0]] != '']
+    print("After dropping rows missing col A:", df.shape)
+
+    # ----------------------------------------------------------------
+    # Remove duplicates based on col A (AR Code)
+    # ----------------------------------------------------------------
+    df.drop_duplicates(subset=[df.columns[0]], keep='first', inplace=True)
+    print("After dropping duplicates on col A:", df.shape)
+
+    # ----------------------------------------------------------------
+    # 5) Rename columns to final 9
+    # ----------------------------------------------------------------
+    df.columns = [
+        "AR Code",
+        "Name",
+        "Telephone",
+        "Current",
+        "31-60 Days",
+        "61-90 Days",
+        "91-120 Days",
+        "Over 120 Days",
+        "Total Due"
+    ]
+    print("Columns renamed. Current columns:", list(df.columns))
+
+    # ----------------------------------------------------------------
+    # Insert "Multiple Sites" column (index=9)
+    # ----------------------------------------------------------------
+    six_digits = df["AR Code"].str[:6]
+    counts = six_digits.value_counts()
+    df.insert(
+        9,
+        "Multiple Sites",
+        six_digits.apply(lambda x: "Yes" if counts[x] > 1 else "No")
+    )
+    print('Added "Multiple Sites" column based on first 6 digits of AR Code.')
+
+    # ----------------------------------------------------------------
+    # 6) Clean 'Total Due' to parse currency-like strings
+    # ----------------------------------------------------------------
+    df["Total Due"] = (
+        df["Total Due"]
+        .fillna("")
+        .str.replace(r"\s+", "", regex=True)
+        .str.replace(r"\(", "-", regex=True)
+        .str.replace(r"\)", "", regex=True)
+        .str.replace(r"\$", "", regex=True)
+        .str.replace(",", "", regex=True)
+    )
+    df["Total Due"] = pd.to_numeric(df["Total Due"], errors="coerce").fillna(0)
+
+    # ----------------------------------------------------------------
+    # 7) (Optional) Filter out rows older than 4 years, if you have a date col
+    # ----------------------------------------------------------------
+    '''
+    df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], errors="coerce")
+    four_years_ago = pd.Timestamp.today() - pd.DateOffset(years=4)
+    df = df[df["InvoiceDate"] >= four_years_ago]
+    print("After filtering rows older than 4 years:", df.shape)
+    '''
+
+    # ----------------------------------------------------------------
+    # 8) Write to Excel with multiple sheets:
+    #    - "READ ME"
+    #    - "Master File"
+    #    - "Credits Due"
+    #    - "Under $100"
+    #    - "$101-$200"
+    #    - "$201-$500"
+    #    - "$501-$1000"    <-- NEW BUCKET
+    #    - "> $1000"
+    #
+    #    Apply currency formatting at the end as before
+    # ----------------------------------------------------------------
+    print("Creating Excel workbook:", output_path)
+    with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
+        # READ ME
+        read_me_data = {
+            "Instructions": [
+                "WELCOME TO THE AR BALANCE REPORT!",
+                "",
+                "WORKSHEET GUIDE:",
+                "  * Master File: All accounts (negatives, positives, zero).",
+                "  * Credits Due: Negative 'Total Due' only.",
+                "  * Under $100: Non-negative amounts below $100.",
+                "  * $100-$200: Non-negative amounts between $101 and $200.",
+                "  * $201-$500: Non-negative amounts between $201 and $500.",
+                "  * $501-$1000: Non-negative amounts between $501 and $1000.",
+                "  * > $1000: Non-negative amounts above $1000.",
+                "",
+                "NOTES:",
+                "  * 'Multiple Sites' (last column) is 'Yes' if this Account Code 'AR Code' first 6 digits appear on more than one row, indicating the Account has multiple sites under thier agreement, otherwise 'No'.",
+                "  * Parentheses in 'Total Due' indicate a negative (credit) balance.",
+                "  * De-duplication occurs on 'AR Code'—only the first occurrence is kept.",
+                "THANK YOU FOR USING THIS REPORT!"
+            ]
+        }
+        read_me_df = pd.DataFrame(read_me_data)
+        read_me_df.to_excel(writer, sheet_name="READ ME", index=False)
+
+        # Master File
+        df.to_excel(writer, sheet_name="Master File", index=False)
+        # Credits Due
+        credits_df = df[df["Total Due"] < 0]
+        credits_df.to_excel(writer, sheet_name="Credits Due", index=False)
+        # Under $100
+        under_100 = df[(df["Total Due"] >= 0) & (df["Total Due"] < 100)]
+        under_100.to_excel(writer, sheet_name="Under $100", index=False)
+        # $100-$200
+        between_100_200 = df[(df["Total Due"] >= 100) & (df["Total Due"] <= 200)]
+        between_100_200.to_excel(writer, sheet_name="$100-$200", index=False)
+        # $201-$500
+        between_201_500 = df[(df["Total Due"] >= 201) & (df["Total Due"] <= 500)]
+        between_201_500.to_excel(writer, sheet_name="$201-$500", index=False)
+
+        # === NEW BUCKET: $501-$1000 ===
+        between_501_1000 = df[(df["Total Due"] >= 501) & (df["Total Due"] <= 1000)]
+        between_501_1000.to_excel(writer, sheet_name="$501-$1000", index=False)
+
+        # > $1000
+        over_1000 = df[df["Total Due"] > 1000]
+        over_1000.to_excel(writer, sheet_name="> $1000", index=False)
+
+        # === Apply Aesthetic Currency Formatting (unchanged) ===
+        money_fmt = '"$"#,##0.00_);[Red]("$"#,##0.00)'
+
+        def apply_currency_format(sheet_name, num_rows):
+            sheet = writer.sheets[sheet_name]
+            # "Total Due" is column 9 in zero-based indexing
+            for row in range(2, num_rows + 2):
+                cell = sheet.cell(row=row, column=9)
+                cell.number_format = money_fmt
+
+        apply_currency_format("Master File", df.shape[0])
+        apply_currency_format("Credits Due", credits_df.shape[0])
+        apply_currency_format("Under $100", under_100.shape[0])
+        apply_currency_format("$100-$200", between_100_200.shape[0])
+        apply_currency_format("$201-$500", between_201_500.shape[0])
+        apply_currency_format("$501-$1000", between_501_1000.shape[0])  # NEW
+        apply_currency_format("> $1000", over_1000.shape[0])
+
+    print(f"Processing complete! Final Excel saved to: {output_path}")
+
+
+if __name__ == "__main__":
+    process_ar_balance_file()

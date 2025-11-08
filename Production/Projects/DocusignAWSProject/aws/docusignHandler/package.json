@@ -1,0 +1,17 @@
+{
+  "name": "docusignhandler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "docusign-esign": "^8.4.0",
+    "googleapis": "^159.0.0",
+    "xml2js": "^0.6.2"
+  }
+}

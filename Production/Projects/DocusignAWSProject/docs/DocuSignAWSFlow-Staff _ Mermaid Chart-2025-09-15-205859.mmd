@@ -1,0 +1,21 @@
+flowchart TD
+  A["Sales Rep sends contract (New Client)"] --> B["Client signs (remote or in‑person)"]
+  B --> C["System records contract and adds a row to 'ServiceSlips' (Status: Pending Slip)"]
+  C --> D["Dispatcher (Staff Approver) reviews Google Sheet, sets Status: Ready for Service Slip, initiates slip"]
+  D --> E["DocuSign Step 1 – Staff Approver: verify details and enter RouteNum and Seq; approve/sign"]
+  E --> F["DocuSign Step 2 – SS Delivery Team: delivers container, enters Container ID and Delivery Notes; sign"]
+  F --> G["DocuSign Step 3 – DispatchCC: receives a copy (CC)"]
+  G --> H["DocuSign Step 4 – BillingApproval: review/acknowledge (Needs to Sign)"]
+  H --> I["System: saves slip PDF to S3, moves row to 'Completed', sends SNS summary to billing@southernsanitation.com"]
+  I --> J["Welcome Email sent to client (Portal links, FAQs, Contact)"]
+
+  style A stroke:none,fill:#00C853
+  style B stroke:#D50000
+  style C fill:#FFFFFF,stroke:#2962FF
+  style D stroke:#00C853,fill:#C8E6C9
+  style E stroke:#00C853
+  style F stroke:#00C853
+  style G stroke:#CCCCCC
+  style H stroke:#FF6D00
+  style I stroke:#2962FF
+  style J fill:#FF6D00

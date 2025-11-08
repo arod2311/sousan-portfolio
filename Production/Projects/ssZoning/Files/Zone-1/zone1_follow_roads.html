@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d6fadd915271abb736ca4b4f6daeb8da {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d6fadd915271abb736ca4b4f6daeb8da" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d6fadd915271abb736ca4b4f6daeb8da = L.map(
+                "map_d6fadd915271abb736ca4b4f6daeb8da",
+                {
+                    center: [27.49099425, -99.45770731989005],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ee8c3720e4f0fb787aaa6b13571cdaa0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ee8c3720e4f0fb787aaa6b13571cdaa0.addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+        function geo_json_483270cf872b81cc47929d178b315d01_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#FF4500", "fillColor": "#FFA500", "fillOpacity": 0.3, "weight": 3};
+            }
+        }
+
+        function geo_json_483270cf872b81cc47929d178b315d01_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_483270cf872b81cc47929d178b315d01 = L.geoJson(null, {
+                onEachFeature: geo_json_483270cf872b81cc47929d178b315d01_onEachFeature,
+            
+                style: geo_json_483270cf872b81cc47929d178b315d01_styler,
+            ...{
+}
+        });
+
+        function geo_json_483270cf872b81cc47929d178b315d01_add (data) {
+            geo_json_483270cf872b81cc47929d178b315d01
+                .addData(data);
+        }
+            geo_json_483270cf872b81cc47929d178b315d01_add({"features": [{"geometry": {"coordinates": [[[-99.4766822, 27.530607], [-99.4741644, 27.5305449], [-99.4731333, 27.5305434], [-99.472484, 27.5305439], [-99.4709875, 27.5305354], [-99.470227, 27.5305331], [-99.4700108, 27.5305325], [-99.4690082, 27.5305232], [-99.4679786, 27.5305073], [-99.4669478, 27.5304046], [-99.4659147, 27.5302683], [-99.46489, 27.5301363], [-99.4630894, 27.5299033], [-99.4576451, 27.5292225], [-99.4562547, 27.5290466], [-99.4552588, 27.5289206], [-99.4483525, 27.5283507], [-99.4460817, 27.5282535], [-99.44587817762277, 27.528242263186403], [-99.4456043, 27.5259775], [-99.4487587, 27.5172264], [-99.4486781, 27.5116596], [-99.4486263, 27.5088876], [-99.4436819, 27.4900078], [-99.4439202, 27.4811934], [-99.4439449, 27.4804003], [-99.4440513, 27.4776953], [-99.4442324, 27.4767243], [-99.4463686, 27.4727455], [-99.4473262, 27.4712492], [-99.44986457229635, 27.466507817044512], [-99.449925, 27.466531], [-99.451887, 27.467282], [-99.45248, 27.467509], [-99.452685, 27.467586], [-99.455191, 27.469155], [-99.456166, 27.469765], [-99.456581, 27.470024], [-99.46116, 27.47289], [-99.462111, 27.473485], [-99.462107, 27.473436], [-99.4621, 27.47333], [-99.453409, 27.467858], [-99.452767, 27.467461], [-99.449998, 27.466392], [-99.44993879917972, 27.466369169896435], [-99.4517541, 27.4629784], [-99.4522716, 27.4616708], [-99.4527316, 27.4532109], [-99.4527166, 27.4508877], [-99.4551877, 27.4519099], [-99.4592508, 27.4518016], [-99.4607326, 27.4517778], [-99.4624875, 27.4517497], [-99.4649837, 27.4517097], [-99.465819, 27.4516963], [-99.4666514, 27.451683], [-99.4674771, 27.4516698], [-99.468313, 27.4516564], [-99.4691465, 27.451643], [-99.469988, 27.4516295], [-99.4707542, 27.4516669], [-99.4728777, 27.4516352], [-99.4750924, 27.4515901], [-99.4775733, 27.4515677], [-99.477379, 27.4544072], [-99.4772805, 27.4577106], [-99.4772378, 27.4593594], [-99.4771966, 27.460953], [-99.4771526, 27.4632154], [-99.4772642, 27.4657586], [-99.4773306, 27.4666803], [-99.4773448, 27.4675835], [-99.4773234, 27.4684965], [-99.4772121, 27.4694401], [-99.4770154, 27.4703425], [-99.4762833, 27.4721751], [-99.4755374, 27.474008], [-99.4751897, 27.47493], [-99.474856, 27.4758512], [-99.4745228, 27.4767651], [-99.4741861, 27.4776785], [-99.4735155, 27.4795158], [-99.4731856, 27.4804452], [-99.4728509, 27.481355], [-99.4724999, 27.482265], [-99.4721703, 27.4831922], [-99.4718627, 27.4840715], [-99.4716154, 27.4850231], [-99.4714947, 27.4859459], [-99.4714793, 27.486867], [-99.4714926, 27.4877819], [-99.4714859, 27.4886901], [-99.4714913, 27.4892067], [-99.471495, 27.4895647], [-99.4714959, 27.4896574], [-99.4714991, 27.4899644], [-99.471505, 27.4905308], [-99.4714438, 27.4914577], [-99.4711958, 27.4923727], [-99.4697431, 27.4955806], [-99.4693732, 27.4965001], [-99.469147, 27.4974058], [-99.4690553, 27.498317], [-99.4690226, 27.4989597], [-99.4688473, 27.5021134], [-99.4697018, 27.5038129], [-99.4710934, 27.5060578], [-99.4721494, 27.5065541], [-99.4731814, 27.5065793], [-99.4742112, 27.5065793], [-99.4752385, 27.5065793], [-99.4762662, 27.5065812], [-99.4772939, 27.5065832], [-99.4783216, 27.5065851], [-99.4793494, 27.5065871], [-99.4803771, 27.506589], [-99.4803755, 27.5075101], [-99.480374, 27.5084237], [-99.4803725, 27.5093428], [-99.480371, 27.5102605], [-99.4803694, 27.5111781], [-99.4803679, 27.5120958], [-99.4803664, 27.5130134], [-99.4803649, 27.5139311], [-99.4803633, 27.5148487], [-99.4803618, 27.5157663], [-99.4803603, 27.5166755], [-99.4803603, 27.516782], [-99.4803584, 27.5177014], [-99.4803565, 27.5186233], [-99.4803545, 27.5195383], [-99.4803526, 27.5204519], [-99.4803507, 27.5213682], [-99.4803496, 27.5219084], [-99.4803488, 27.5222844], [-99.4803468, 27.5232034], [-99.4803469, 27.52412], [-99.4803474, 27.52547], [-99.4803476, 27.5261116], [-99.4803485, 27.5305707], [-99.4766822, 27.530607]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_483270cf872b81cc47929d178b315d01.bindTooltip(
+                `<div>
+                     Zone 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            geo_json_483270cf872b81cc47929d178b315d01.addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var marker_533900dd55ef06d36742cb0a38c6b95e = L.marker(
+                [27.679593, -99.4545442],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_00603e397cd20536ef0ae3a07a98b76e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4a5d0fcb8ebb8df01b264caeda1ac777 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_ad21edf0a594a09c0e9474f10878886d = $(`<div id="html_ad21edf0a594a09c0e9474f10878886d" style="width: 100.0%; height: 100.0%;"><b>WERNER ENTERPRISES</b><br>Acct #: 200907<br>Container: 30.00<br>Service: Roll Off<br>1201 CARRIERS DR<br>LAREDO, TX 78046</div>`)[0];
+                popup_4a5d0fcb8ebb8df01b264caeda1ac777.setContent(html_ad21edf0a594a09c0e9474f10878886d);
+            
+        
+
+        marker_533900dd55ef06d36742cb0a38c6b95e.bindPopup(popup_4a5d0fcb8ebb8df01b264caeda1ac777)
+        ;
+
+        
+    
+    
+                marker_533900dd55ef06d36742cb0a38c6b95e.setIcon(icon_00603e397cd20536ef0ae3a07a98b76e);
+            
+    
+            var marker_d72a140dc67a71053aaa4149441d71fc = L.marker(
+                [27.4668774, -99.4799868],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_8d9d5162e8bd96c5cb75aa0bdad037ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ea8476ac6873c4d9d7f89b806d3c0c1 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_349bf385c4a89ef9bc510e445e0a4361 = $(`<div id="html_349bf385c4a89ef9bc510e445e0a4361" style="width: 100.0%; height: 100.0%;"><b>SACRED HEART CHILDREN'S</b><br>Acct #: 201304<br>Container: 10.00<br>Service: Roll Off<br>3310 S ZAPATA HWY<br>LAREDO, TX 78046</div>`)[0];
+                popup_3ea8476ac6873c4d9d7f89b806d3c0c1.setContent(html_349bf385c4a89ef9bc510e445e0a4361);
+            
+        
+
+        marker_d72a140dc67a71053aaa4149441d71fc.bindPopup(popup_3ea8476ac6873c4d9d7f89b806d3c0c1)
+        ;
+
+        
+    
+    
+                marker_d72a140dc67a71053aaa4149441d71fc.setIcon(icon_8d9d5162e8bd96c5cb75aa0bdad037ec);
+            
+    
+            var marker_6dc8b9be21e2ce2efcdd7cdf7acc672e = L.marker(
+                [27.4009588, -99.4482248],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_2e0e25614ced27fdbcb11187e7b5758d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eaa6de2a6840841bd4bdc844e8f86de1 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_757e08c9d24007826c5749838e11a4f8 = $(`<div id="html_757e08c9d24007826c5749838e11a4f8" style="width: 100.0%; height: 100.0%;"><b>LAREDO TRUSS</b><br>Acct #: 206229<br>Container: 30.00<br>Service: Roll Off<br>1617 MANGANA HEIN<br>LAREDO, TX 78043</div>`)[0];
+                popup_eaa6de2a6840841bd4bdc844e8f86de1.setContent(html_757e08c9d24007826c5749838e11a4f8);
+            
+        
+
+        marker_6dc8b9be21e2ce2efcdd7cdf7acc672e.bindPopup(popup_eaa6de2a6840841bd4bdc844e8f86de1)
+        ;
+
+        
+    
+    
+                marker_6dc8b9be21e2ce2efcdd7cdf7acc672e.setIcon(icon_2e0e25614ced27fdbcb11187e7b5758d);
+            
+    
+            var marker_ed059b918922513d78556df8bc90c5f4 = L.marker(
+                [27.5282792, -99.4345716],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_b6d956e9f825855d0bdb53049b1c026c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9803b160912f7c63863832c04a0e88d0 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_545571322390e848afb30e5363a30f42 = $(`<div id="html_545571322390e848afb30e5363a30f42" style="width: 100.0%; height: 100.0%;"><b>ZTERS</b><br>Acct #: 207754<br>Container: 30.00<br>Service: Roll Off<br>12980 US HWY 59<br>LAREDO, TX 78043</div>`)[0];
+                popup_9803b160912f7c63863832c04a0e88d0.setContent(html_545571322390e848afb30e5363a30f42);
+            
+        
+
+        marker_ed059b918922513d78556df8bc90c5f4.bindPopup(popup_9803b160912f7c63863832c04a0e88d0)
+        ;
+
+        
+    
+    
+                marker_ed059b918922513d78556df8bc90c5f4.setIcon(icon_b6d956e9f825855d0bdb53049b1c026c);
+            
+    
+            var marker_1bcec28e2dc5a23d3d0b5f07b5ef1499 = L.marker(
+                [27.4767899, -99.4761062],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_552323e73b2b133fab71774bc2427de2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3907b0013e3d7c81f16b0223cc4ab275 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_49bc04d63743174761c94711d73c05f2 = $(`<div id="html_49bc04d63743174761c94711d73c05f2" style="width: 100.0%; height: 100.0%;"><b>Zters</b><br>Acct #: 207754<br>Container: 30.00<br>Service: Roll Off<br>2314 South Zapata<br>Laredo, TX 78046</div>`)[0];
+                popup_3907b0013e3d7c81f16b0223cc4ab275.setContent(html_49bc04d63743174761c94711d73c05f2);
+            
+        
+
+        marker_1bcec28e2dc5a23d3d0b5f07b5ef1499.bindPopup(popup_3907b0013e3d7c81f16b0223cc4ab275)
+        ;
+
+        
+    
+    
+                marker_1bcec28e2dc5a23d3d0b5f07b5ef1499.setIcon(icon_552323e73b2b133fab71774bc2427de2);
+            
+    
+            var marker_25127aadf4d3cdc5c33a29598714c033 = L.marker(
+                [27.3661619, -99.4887075],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_d23fc68566a3fca36b600c19c64ab6d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e82dd6e8570b6dca5db1a4961968d1b = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_2c8dcc6772b85d1692d2b130b395ea3d = $(`<div id="html_2c8dcc6772b85d1692d2b130b395ea3d" style="width: 100.0%; height: 100.0%;"><b>RIO BRAVO SEWER PLANT</b><br>Acct #: 207890<br>Container: 30.00<br>Service: Roll Off<br>515 MARGARITA<br>RIO BRAVO, TX 78046</div>`)[0];
+                popup_1e82dd6e8570b6dca5db1a4961968d1b.setContent(html_2c8dcc6772b85d1692d2b130b395ea3d);
+            
+        
+
+        marker_25127aadf4d3cdc5c33a29598714c033.bindPopup(popup_1e82dd6e8570b6dca5db1a4961968d1b)
+        ;
+
+        
+    
+    
+                marker_25127aadf4d3cdc5c33a29598714c033.setIcon(icon_d23fc68566a3fca36b600c19c64ab6d6);
+            
+    
+            var marker_f2e37ff48780861e048d062efb911377 = L.marker(
+                [27.4922598, -99.4575878],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_df2157496f8acf7cf4ddbec2778da8c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_684cef7c6a50cad8a63ebe48be8c7cf0 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_c5e8ca1fce9c6fb77855550d01226724 = $(`<div id="html_c5e8ca1fce9c6fb77855550d01226724" style="width: 100.0%; height: 100.0%;"><b>REGIO BLOCK</b><br>Acct #: 208474<br>Container: 30.00<br>Service: Roll Off<br>514 S CREEK DR<br>LAREDO, TX 78046</div>`)[0];
+                popup_684cef7c6a50cad8a63ebe48be8c7cf0.setContent(html_c5e8ca1fce9c6fb77855550d01226724);
+            
+        
+
+        marker_f2e37ff48780861e048d062efb911377.bindPopup(popup_684cef7c6a50cad8a63ebe48be8c7cf0)
+        ;
+
+        
+    
+    
+                marker_f2e37ff48780861e048d062efb911377.setIcon(icon_df2157496f8acf7cf4ddbec2778da8c7);
+            
+    
+            var marker_7ef7ebeb637cdbcd9aa3cbf6f79879e5 = L.marker(
+                [27.5542772, -99.4549212],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_19cd776da0772b591ff32e45f6ed1917 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2e8559d93a9de26fd5d938e071998174 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_376f77606e9ffb0adad76e9fef8607c6 = $(`<div id="html_376f77606e9ffb0adad76e9fef8607c6" style="width: 100.0%; height: 100.0%;"><b>UNITRADE STADIUM</b><br>Acct #: 209686<br>Container: 30.00<br>Service: Roll Off Compactor - Waste<br>6320 SINATRA<br>LAREDO, TX 78043</div>`)[0];
+                popup_2e8559d93a9de26fd5d938e071998174.setContent(html_376f77606e9ffb0adad76e9fef8607c6);
+            
+        
+
+        marker_7ef7ebeb637cdbcd9aa3cbf6f79879e5.bindPopup(popup_2e8559d93a9de26fd5d938e071998174)
+        ;
+
+        
+    
+    
+                marker_7ef7ebeb637cdbcd9aa3cbf6f79879e5.setIcon(icon_19cd776da0772b591ff32e45f6ed1917);
+            
+    
+            var marker_003242c48855fad987a2326a46a0b689 = L.marker(
+                [27.5542772, -99.4549212],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_ff9b7739afa62c0528d25455466d704a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_421b222498d8229a706f87dc473ddadd = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_afe317ecfe4e1c1c928f9f545ef0c719 = $(`<div id="html_afe317ecfe4e1c1c928f9f545ef0c719" style="width: 100.0%; height: 100.0%;"><b>UNITRADE STADIUM</b><br>Acct #: 209686<br>Container: 30.00<br>Service: Roll Off<br>6320 SINATRA<br>LAREDO, TX 78043</div>`)[0];
+                popup_421b222498d8229a706f87dc473ddadd.setContent(html_afe317ecfe4e1c1c928f9f545ef0c719);
+            
+        
+
+        marker_003242c48855fad987a2326a46a0b689.bindPopup(popup_421b222498d8229a706f87dc473ddadd)
+        ;
+
+        
+    
+    
+                marker_003242c48855fad987a2326a46a0b689.setIcon(icon_ff9b7739afa62c0528d25455466d704a);
+            
+    
+            var marker_241f55e625132d17205ecabd7b9fc6e0 = L.marker(
+                [27.383409, -99.4733982],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_59ed0fde29dfeec0737ceb9d8338ec7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21d523d351075403eafba630c1a6b193 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_9b11f4e31e190ad2bcc799c663361dd4 = $(`<div id="html_9b11f4e31e190ad2bcc799c663361dd4" style="width: 100.0%; height: 100.0%;"><b>LDR SITES</b><br>Acct #: 209851<br>Container: 30.00<br>Service: Roll Off<br>US-83<br>LAREDO, TX 78046</div>`)[0];
+                popup_21d523d351075403eafba630c1a6b193.setContent(html_9b11f4e31e190ad2bcc799c663361dd4);
+            
+        
+
+        marker_241f55e625132d17205ecabd7b9fc6e0.bindPopup(popup_21d523d351075403eafba630c1a6b193)
+        ;
+
+        
+    
+    
+                marker_241f55e625132d17205ecabd7b9fc6e0.setIcon(icon_59ed0fde29dfeec0737ceb9d8338ec7e);
+            
+    
+            var marker_797ec4492b3de122af35469691f935ca = L.marker(
+                [27.4767899, -99.4761062],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_6e368dc049222f0c07a2be4030e19cf2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b19e53c4400c02d687f11f3372ebd765 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_ba7ed864785583661f55f8848d859dcb = $(`<div id="html_ba7ed864785583661f55f8848d859dcb" style="width: 100.0%; height: 100.0%;"><b>H E B # 586</b><br>Acct #: 209970<br>Container: 30.00<br>Service: Roll Off Compactor - Waste<br>2314 S ZAPATA HWY<br>LAREDO, TX 78046</div>`)[0];
+                popup_b19e53c4400c02d687f11f3372ebd765.setContent(html_ba7ed864785583661f55f8848d859dcb);
+            
+        
+
+        marker_797ec4492b3de122af35469691f935ca.bindPopup(popup_b19e53c4400c02d687f11f3372ebd765)
+        ;
+
+        
+    
+    
+                marker_797ec4492b3de122af35469691f935ca.setIcon(icon_6e368dc049222f0c07a2be4030e19cf2);
+            
+    
+            var marker_9c011781d8d26b38186ee67283242b32 = L.marker(
+                [27.5157456, -99.452377],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_81affa8501918bde17e9918bae02f55c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_09ed2c31a5be96cd0a09271371d04848 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_3742ed5ac18876cfdec45abe74833a2c = $(`<div id="html_3742ed5ac18876cfdec45abe74833a2c" style="width: 100.0%; height: 100.0%;"><b>TARGET 2112</b><br>Acct #: 210687<br>Container: 30.00<br>Service: Roll Off<br>1910 BOB BULLOCK LP<br>LAREDO, TX 78043</div>`)[0];
+                popup_09ed2c31a5be96cd0a09271371d04848.setContent(html_3742ed5ac18876cfdec45abe74833a2c);
+            
+        
+
+        marker_9c011781d8d26b38186ee67283242b32.bindPopup(popup_09ed2c31a5be96cd0a09271371d04848)
+        ;
+
+        
+    
+    
+                marker_9c011781d8d26b38186ee67283242b32.setIcon(icon_81affa8501918bde17e9918bae02f55c);
+            
+    
+            var marker_b0877d1b77b06eabe580539a0f5da357 = L.marker(
+                [27.5157456, -99.452377],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_8fedf5d961cee5f4cc058d3590bde079 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27a29ced2d86553c645adb018f858e98 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_37ce023690813aaa7c5e322aa3d7d949 = $(`<div id="html_37ce023690813aaa7c5e322aa3d7d949" style="width: 100.0%; height: 100.0%;"><b>TARGET-TGT002112</b><br>Acct #: 211226<br>Container: 30.00<br>Service: Roll Off Compactor - Cardboard<br>1910 BOB BULLOCK LOOP<br>LAREDO, TX 78043</div>`)[0];
+                popup_27a29ced2d86553c645adb018f858e98.setContent(html_37ce023690813aaa7c5e322aa3d7d949);
+            
+        
+
+        marker_b0877d1b77b06eabe580539a0f5da357.bindPopup(popup_27a29ced2d86553c645adb018f858e98)
+        ;
+
+        
+    
+    
+                marker_b0877d1b77b06eabe580539a0f5da357.setIcon(icon_8fedf5d961cee5f4cc058d3590bde079);
+            
+    
+            var marker_04ef622963167db5a986861adc98af43 = L.marker(
+                [27.4415902, -99.4789033],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_4853a10f8289e16fa36b0dbf7309fa41 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9c23c639fd31cf5388cbdf58014fa41 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_d3f42299f55358c609fcb4806b418052 = $(`<div id="html_d3f42299f55358c609fcb4806b418052" style="width: 100.0%; height: 100.0%;"><b>WAL MART - 3623</b><br>Acct #: 214098<br>Container: 30.00<br>Service: Roll Off Compactor - Waste<br>4401 S ZAPATA HWY<br>LAREDO, TX 78046</div>`)[0];
+                popup_d9c23c639fd31cf5388cbdf58014fa41.setContent(html_d3f42299f55358c609fcb4806b418052);
+            
+        
+
+        marker_04ef622963167db5a986861adc98af43.bindPopup(popup_d9c23c639fd31cf5388cbdf58014fa41)
+        ;
+
+        
+    
+    
+                marker_04ef622963167db5a986861adc98af43.setIcon(icon_4853a10f8289e16fa36b0dbf7309fa41);
+            
+    
+            var marker_2efa146d198fe401a0e0f6fdae0a9908 = L.marker(
+                [27.4734504, -99.4621686],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_eae66c3a535aa047fcf60ee3ed06ac00 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e78318500fec41a69e8159960f4e237 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_d9e80d7a65ef2b8bcbf9a9d9df196274 = $(`<div id="html_d9e80d7a65ef2b8bcbf9a9d9df196274" style="width: 100.0%; height: 100.0%;"><b>SUSTAIN ENVIRONMENTAL</b><br>Acct #: 215857<br>Container: 30.00<br>Service: Roll Off<br>4750 WORMSER RD<br>LAREDO, TX 78046</div>`)[0];
+                popup_3e78318500fec41a69e8159960f4e237.setContent(html_d9e80d7a65ef2b8bcbf9a9d9df196274);
+            
+        
+
+        marker_2efa146d198fe401a0e0f6fdae0a9908.bindPopup(popup_3e78318500fec41a69e8159960f4e237)
+        ;
+
+        
+    
+    
+                marker_2efa146d198fe401a0e0f6fdae0a9908.setIcon(icon_eae66c3a535aa047fcf60ee3ed06ac00);
+            
+    
+            var marker_72f1beb04bf097eaf94c13fa946e50e5 = L.marker(
+                [27.5183834, -99.451695],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_ff326248bda3913784f59ffbe516bef1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5e4c5e439bf612a5a05b220334599ca9 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_ad86989fce206c0351ea6fbb78d6f4d6 = $(`<div id="html_ad86989fce206c0351ea6fbb78d6f4d6" style="width: 100.0%; height: 100.0%;"><b>WASTE MANAGEMENT- WALMART</b><br>Acct #: 215872<br>Container: 30.00<br>Service: Roll Off<br>2320 BOB BULLOCK<br>LAREDO, TX 78043</div>`)[0];
+                popup_5e4c5e439bf612a5a05b220334599ca9.setContent(html_ad86989fce206c0351ea6fbb78d6f4d6);
+            
+        
+
+        marker_72f1beb04bf097eaf94c13fa946e50e5.bindPopup(popup_5e4c5e439bf612a5a05b220334599ca9)
+        ;
+
+        
+    
+    
+                marker_72f1beb04bf097eaf94c13fa946e50e5.setIcon(icon_ff326248bda3913784f59ffbe516bef1);
+            
+    
+            var marker_f62a5fe71d2ec3a451f727be35f6b124 = L.marker(
+                [27.5399411, -99.4699557],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_0ed46d79fbc872511581c68a3d847a20 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5d11da3b37973dd9fcc93b93cce2cc2 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_9d3bd24b4d96b32d8d6a7865b85b9f0c = $(`<div id="html_9d3bd24b4d96b32d8d6a7865b85b9f0c" style="width: 100.0%; height: 100.0%;"><b>3G ELECTRICAL SUPPLY</b><br>Acct #: 215881<br>Container: 30.00<br>Service: Roll Off<br>811 E CALTON RD<br>LAREDO, TX 78043</div>`)[0];
+                popup_c5d11da3b37973dd9fcc93b93cce2cc2.setContent(html_9d3bd24b4d96b32d8d6a7865b85b9f0c);
+            
+        
+
+        marker_f62a5fe71d2ec3a451f727be35f6b124.bindPopup(popup_c5d11da3b37973dd9fcc93b93cce2cc2)
+        ;
+
+        
+    
+    
+                marker_f62a5fe71d2ec3a451f727be35f6b124.setIcon(icon_0ed46d79fbc872511581c68a3d847a20);
+            
+    
+            var marker_8add41580eda8530b4b9dd34cf94f5a1 = L.marker(
+                [27.4895472, -99.415751],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_cf7c933287066e3e4f7700a7747d5edb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ee5fa17da58dad6b8ce41d971a58e8e = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_5fff8aad4aa8a4951e1508f7bacf15ed = $(`<div id="html_5fff8aad4aa8a4951e1508f7bacf15ed" style="width: 100.0%; height: 100.0%;"><b>JK LIQUIDATION INC</b><br>Acct #: 215903<br>Container: 30.00<br>Service: Roll Off<br>6552 HIGHWAY 359<br>LAREDO, TX 78043</div>`)[0];
+                popup_0ee5fa17da58dad6b8ce41d971a58e8e.setContent(html_5fff8aad4aa8a4951e1508f7bacf15ed);
+            
+        
+
+        marker_8add41580eda8530b4b9dd34cf94f5a1.bindPopup(popup_0ee5fa17da58dad6b8ce41d971a58e8e)
+        ;
+
+        
+    
+    
+                marker_8add41580eda8530b4b9dd34cf94f5a1.setIcon(icon_cf7c933287066e3e4f7700a7747d5edb);
+            
+    
+            var marker_2289c1ac14d7e05d8d0b11a53926cdb6 = L.marker(
+                [27.5362608, -99.4723622],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_b7283e3efb701a9e8c6e018ce442f7b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80e81caff8b26557dc6adb5643793535 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_f72351f2e8149a8562b62608bf13b474 = $(`<div id="html_f72351f2e8149a8562b62608bf13b474" style="width: 100.0%; height: 100.0%;"><b>DCOMM INC</b><br>Acct #: 215996<br>Container: 40.00<br>Service: Roll Off<br>2015 PAPPAS ST<br>LAREDO, TX 78043</div>`)[0];
+                popup_80e81caff8b26557dc6adb5643793535.setContent(html_f72351f2e8149a8562b62608bf13b474);
+            
+        
+
+        marker_2289c1ac14d7e05d8d0b11a53926cdb6.bindPopup(popup_80e81caff8b26557dc6adb5643793535)
+        ;
+
+        
+    
+    
+                marker_2289c1ac14d7e05d8d0b11a53926cdb6.setIcon(icon_b7283e3efb701a9e8c6e018ce442f7b6);
+            
+    
+            var marker_431860d6bedaa952db64efb71ff9f6f0 = L.marker(
+                [27.5130666, -99.470803],
+                {
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+        
+    
+            var icon_9c4b24d037cd8e63a35ab56e11c443fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a166d635331ac64cbe01e811acb63957 = L.popup({
+  "maxWidth": 260,
+  "minWidth": 200,
+});
+
+        
+            
+                var html_dc8dfa97ab6b499411611f325c11bdbc = $(`<div id="html_dc8dfa97ab6b499411611f325c11bdbc" style="width: 100.0%; height: 100.0%;"><b>JONATHAN TUCKER</b><br>Acct #: 216012<br>Container: 30.00<br>Service: Roll Off<br>2520 LANE ST<br>LAREDO, TX 78043</div>`)[0];
+                popup_a166d635331ac64cbe01e811acb63957.setContent(html_dc8dfa97ab6b499411611f325c11bdbc);
+            
+        
+
+        marker_431860d6bedaa952db64efb71ff9f6f0.bindPopup(popup_a166d635331ac64cbe01e811acb63957)
+        ;
+
+        
+    
+    
+                marker_431860d6bedaa952db64efb71ff9f6f0.setIcon(icon_9c4b24d037cd8e63a35ab56e11c443fa);
+            
+    
+            var layer_control_c667d4227c9ded5c8383003c83342356_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_ee8c3720e4f0fb787aaa6b13571cdaa0,
+                },
+                overlays :  {
+                    "Zone 1" : geo_json_483270cf872b81cc47929d178b315d01,
+                },
+            };
+            let layer_control_c667d4227c9ded5c8383003c83342356 = L.control.layers(
+                layer_control_c667d4227c9ded5c8383003c83342356_layers.base_layers,
+                layer_control_c667d4227c9ded5c8383003c83342356_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_d6fadd915271abb736ca4b4f6daeb8da);
+
+        
+</script>
+</html>

@@ -1,0 +1,25 @@
+2025-01-24 15:20:21       meraki:     INFO > Meraki dashboard API session initialized with these parameters: {'version': '1.54.0', 'api_key': '************************************aa1a', 'base_url': 'https://api.meraki.com/api/v1', 'single_request_timeout': 60, 'certificate_path': '', 'requests_proxy': '', 'wait_on_rate_limit': True, 'nginx_429_retry_wait_time': 60, 'action_batch_retry_wait_time': 60, 'network_delete_retry_wait_time': 240, 'retry_4xx_error': False, 'retry_4xx_error_wait_time': 60, 'maximum_retries': 2, 'simulate': False, 'be_geo_id': None, 'caller': None, 'use_iterator_for_get_pages': False}
+2025-01-24 15:20:21       meraki:    DEBUG > {'tags': ['networks', 'configure', 'devices'], 'operation': 'getNetworkDevices', 'method': 'GET', 'url': '/networks/L_743093938516145211/devices', 'params': None}
+2025-01-24 15:20:21       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/devices
+2025-01-24 15:20:21       meraki:     INFO > networks, getNetworkDevices - 200 OK
+2025-01-24 15:20:21       meraki:    DEBUG > {'tags': ['devices', 'configure'], 'operation': 'getDevice', 'method': 'GET', 'url': '/devices/Q3FA-TL5J-FUHJ', 'params': None}
+2025-01-24 15:20:21       meraki:     INFO > GET https://api.meraki.com/api/v1/devices/Q3FA-TL5J-FUHJ
+2025-01-24 15:20:22       meraki:     INFO > devices, getDevice - 200 OK
+2025-01-24 15:20:22       meraki:    DEBUG > {'tags': ['appliance', 'configure', 'vlans'], 'operation': 'getNetworkApplianceVlans', 'method': 'GET', 'url': '/networks/L_743093938516145211/appliance/vlans', 'params': None}
+2025-01-24 15:20:22       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/appliance/vlans
+2025-01-24 15:20:22       meraki:     INFO > appliance, getNetworkApplianceVlans - 200 OK
+2025-01-24 15:20:22       meraki:    DEBUG > {'tags': ['appliance', 'configure', 'firewall', 'l3FirewallRules'], 'operation': 'getNetworkApplianceFirewallL3FirewallRules', 'method': 'GET', 'url': '/networks/L_743093938516145211/appliance/firewall/l3FirewallRules', 'params': None}
+2025-01-24 15:20:22       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/appliance/firewall/l3FirewallRules
+2025-01-24 15:20:24       meraki:     INFO > appliance, getNetworkApplianceFirewallL3FirewallRules - 200 OK
+2025-01-24 15:20:24       meraki:    DEBUG > {'tags': ['appliance', 'configure', 'firewall', 'l7FirewallRules'], 'operation': 'getNetworkApplianceFirewallL7FirewallRules', 'method': 'GET', 'url': '/networks/L_743093938516145211/appliance/firewall/l7FirewallRules', 'params': None}
+2025-01-24 15:20:24       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/appliance/firewall/l7FirewallRules
+2025-01-24 15:20:24       meraki:     INFO > appliance, getNetworkApplianceFirewallL7FirewallRules - 200 OK
+2025-01-24 15:20:24       meraki:    DEBUG > {'tags': ['appliance', 'configure', 'vpn', 'siteToSiteVpn'], 'operation': 'getNetworkApplianceVpnSiteToSiteVpn', 'method': 'GET', 'url': '/networks/L_743093938516145211/appliance/vpn/siteToSiteVpn', 'params': None}
+2025-01-24 15:20:24       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/appliance/vpn/siteToSiteVpn
+2025-01-24 15:20:24       meraki:     INFO > appliance, getNetworkApplianceVpnSiteToSiteVpn - 200 OK
+2025-01-24 15:20:24       meraki:    DEBUG > {'tags': ['appliance', 'configure', 'trafficShaping'], 'operation': 'getNetworkApplianceTrafficShaping', 'method': 'GET', 'url': '/networks/L_743093938516145211/appliance/trafficShaping', 'params': None}
+2025-01-24 15:20:24       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/appliance/trafficShaping
+2025-01-24 15:20:25       meraki:     INFO > appliance, getNetworkApplianceTrafficShaping - 200 OK
+2025-01-24 15:20:25       meraki:    DEBUG > {'tags': ['appliance', 'configure', 'security', 'malware'], 'operation': 'getNetworkApplianceSecurityMalware', 'method': 'GET', 'url': '/networks/L_743093938516145211/appliance/security/malware', 'params': None}
+2025-01-24 15:20:25       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_743093938516145211/appliance/security/malware
+2025-01-24 15:20:25       meraki:     INFO > appliance, getNetworkApplianceSecurityMalware - 200 OK

@@ -1,0 +1,268 @@
+#!/usr/bin/env python3
+"""
+zone1_follow_roads.py
+────────────────────────────────────────────────────────────────────────────
+Build the “Zone 1” polygon that hugs real roads in south‑east Laredo, TX,
+then plot *all* geocoded customer locations from a CSV file.
+
+Additions in this version
+─────────────────────────
+• Pop‑ups show Account #, Customer name, Container size, Service type.
+• All successfully geocoded addresses are plotted (inside *or* outside
+  the zone).  Marker colour shows their relationship to the zone.
+• Only rows that fail to geocode are written to bad_addresses.csv.
+
+Python ≥ 3.9
+"""
+
+# ── Imports ──────────────────────────────────────────────────────────────
+import csv
+import re
+import sys
+import unicodedata
+from pathlib import Path
+
+import folium
+import geopandas as gpd
+import networkx as nx
+import osmnx as ox
+from geopy.extra.rate_limiter import RateLimiter
+from geopy.geocoders import Nominatim
+from shapely.geometry import Point, Polygon
+from shapely.ops import nearest_points, unary_union
+
+# ── Paths & settings ─────────────────────────────────────────────────────
+BASE_DIR = Path(
+    r"C:\Users\arodriguez\Documents\Projects\sousan\Production\ssZoning\Files\Zone-1"
+)
+PLACE_ZIP = BASE_DIR / "tl_2024_48_place.zip"
+CSV_PATH = BASE_DIR / "78043-78046.csv"
+
+OUT_GEOJSON = "zone1_follow_roads.geojson"
+OUT_HTML = "zone1_follow_roads.html"
+OUT_BAD_CSV = "bad_addresses.csv"
+
+# Column indices (0‑based) in the raw CSV
+CSV_COLS = dict(
+    acct=15,  # P – Account #
+    name=18,  # S – Customer name
+    city=19,  # T – City, State ZIP
+    street=20,  # U – Street address
+    size=21,  # V – Container size
+    svc=23,  # X – Service type
+)
+
+# ── 1. Load City of Laredo limits ────────────────────────────────────────
+print("📥 Loading Laredo city limits…")
+places = gpd.read_file(f"zip://{PLACE_ZIP}")
+laredo = places[(places.STATEFP == "48") & (places.NAME.str.lower() == "laredo")]
+if laredo.empty:
+    raise RuntimeError("City of Laredo not found in place shapefile")
+city_poly = laredo.geometry.values[0]  # shapely Polygon
+
+# ── 2. Download Webb County drivable graph ───────────────────────────────
+print("🔍 Downloading drivable graph for Webb County…")
+G = ox.graph_from_place("Webb County, Texas, USA", network_type="drive")
+
+# Flatten list‑valued ‘name’ tags
+for _u, _v, _k, data in G.edges(keys=True, data=True):
+    if isinstance(data.get("name"), list) and data["name"]:
+        data["name"] = data["name"][0]
+
+# ── 3. Build road‑hugging boundary ───────────────────────────────────────
+BOUNDARIES = {
+    "north": dict(
+        name_exact=["East Saunders Street", "East Saunders St"],
+        ref_exact=["US 59", "I 69W;US 59;Loop 20", "US 59;Loop 20"],
+    ),
+    "east": dict(
+        name_exact=["Bob Bullock Loop", "Cuatro Vientos Road", "Cuatro Vientos Drive"],
+        name_contains=["Wormser"],
+    ),
+    "south": dict(
+        name_exact=["La Pita Mangana Road", "Mangana Hein Road", "Mangana Hein"],
+    ),
+    "west": dict(
+        name_exact=["North Meadow Avenue", "South Meadow Avenue"],
+        ref_exact=["US 83", "US Highway 83 South"],
+    ),
+}
+
+
+def extract_subgraph(G, filt):
+    def keep(u, v, k):
+        d = G.edges[u, v, k]
+        name = d.get("name") or ""
+        ref = d.get("ref") or ""
+        if name in filt.get("name_exact", []):
+            return True
+        if ref in filt.get("ref_exact", []):
+            return True
+        for substr in filt.get("name_contains", []):
+            if substr.lower() in name.lower():
+                return True
+        return False
+
+    edges = [(u, v, k) for u, v, k in G.edges(keys=True) if keep(u, v, k)]
+    return G.edge_subgraph(edges).copy().to_undirected()
+
+
+subs = {side: extract_subgraph(G, cfg) for side, cfg in BOUNDARIES.items()}
+
+
+def geom_of(sg):
+    lines = [d["geometry"] for _, _, d in sg.edges(data=True) if "geometry" in d]
+    return unary_union(lines)
+
+
+north_geom = geom_of(subs["north"])
+east_geom = geom_of(subs["east"])
+south_geom = geom_of(subs["south"])
+west_geom = geom_of(subs["west"])
+
+
+def corner(g1, g2):
+    inter = g1.intersection(g2)
+    if inter.geom_type == "Point" and not inter.is_empty:
+        return inter
+    if hasattr(inter, "geoms"):
+        for g in inter.geoms:
+            if g.geom_type == "Point":
+                return g
+    return nearest_points(g1, g2)[0]
+
+
+pt_Q2 = corner(north_geom, west_geom)  # NW
+pt_Q1 = corner(north_geom, east_geom)  # NE
+pt_Q3 = corner(west_geom, south_geom)  # SW
+pt_Q4 = corner(south_geom, east_geom)  # SE
+
+# Snap corners to graph nodes
+for label, pt in zip(("Q1", "Q2", "Q3", "Q4"), (pt_Q1, pt_Q2, pt_Q3, pt_Q4)):
+    node = ox.nearest_nodes(G, pt.x, pt.y)
+    setattr(sys.modules[__name__], f"{label}_node", node)
+
+
+def path_coords(sg, src_node, dst_node):
+    sx, sy = G.nodes[src_node]["x"], G.nodes[src_node]["y"]
+    dx, dy = G.nodes[dst_node]["x"], G.nodes[dst_node]["y"]
+    src2 = ox.nearest_nodes(sg, sx, sy)
+    dst2 = ox.nearest_nodes(sg, dx, dy)
+    route = nx.shortest_path(sg, src2, dst2, weight="length")
+    return [(G.nodes[n]["y"], G.nodes[n]["x"]) for n in route]
+
+
+coords_north = path_coords(subs["north"], Q2_node, Q1_node)
+coords_east = path_coords(subs["east"], Q1_node, Q4_node)
+coords_south = path_coords(subs["south"], Q4_node, Q3_node)
+coords_west = path_coords(subs["west"], Q3_node, Q2_node)
+
+boundary = coords_north + coords_east[1:] + coords_south[1:] + coords_west[1:]
+raw_poly = Polygon([(lon, lat) for lat, lon in boundary])
+zone1 = raw_poly.buffer(0).intersection(city_poly)  # clean + clip
+
+# ── 4. GeoJSON output ────────────────────────────────────────────────────
+gpd.GeoDataFrame({"zone": ["Zone 1"]}, geometry=[zone1], crs="EPSG:4326").to_file(
+    OUT_GEOJSON, driver="GeoJSON"
+)
+print(f"✓ {OUT_GEOJSON} written")
+
+# ── 5. Geocoder setup ────────────────────────────────────────────────────
+geolocator = Nominatim(user_agent="zone1_address_mapper", timeout=10)
+geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1.0)
+
+
+def ascii_clean(txt):
+    """Strip exotic characters and normalise to plain ASCII."""
+    if not isinstance(txt, str):
+        return ""
+    txt = unicodedata.normalize("NFKD", txt)
+    txt = re.sub(r"[\u2010-\u2015\u2212]", "-", txt)  # dash variants
+    return "".join(ch for ch in txt if 31 < ord(ch) < 127)
+
+
+# ── 6. Read CSV ──────────────────────────────────────────────────────────
+print("📄 Reading CSV…")
+records = []
+with open(CSV_PATH, encoding="utf-8", errors="ignore", newline="") as f:
+    buff = ""
+    for line in f:
+        buff += line
+        if buff.count('"') % 2:  # still inside quoted field
+            continue
+        row = next(csv.reader([buff.strip()]))
+        buff = ""
+        if len(row) <= max(CSV_COLS.values()):
+            continue
+        rec = {k: ascii_clean(row[i]) for k, i in CSV_COLS.items()}
+        if rec["street"] and rec["city"]:
+            rec["addr_str"] = f"{rec['street']}, {rec['city']}"
+            records.append(rec)
+
+print(f"   → {len(records):,} rows with street + city")
+
+# ── 7. Geocode and classify ──────────────────────────────────────────────
+print("🧭 Geocoding…")
+good_recs, bad_recs = [], []
+for rec in records:
+    loc = geocode(rec["addr_str"])
+    if not loc:
+        bad_recs.append(rec)  # reason: no geocode
+        continue
+    rec["point"] = Point(loc.longitude, loc.latitude)
+    rec["inside_zone"] = zone1.contains(rec["point"])
+    good_recs.append(rec)
+
+print(
+    f"   ✓ {len(good_recs):,} geocoded; "
+    f"{len(bad_recs):,} had no geocode"
+)
+
+# ── 8. Write bad addresses (only non‑geocoded) ───────────────────────────
+if bad_recs:
+    print(f"📤 Writing {OUT_BAD_CSV} …")
+    with open(OUT_BAD_CSV, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(bad_recs[0].keys()))
+        w.writeheader()
+        w.writerows(bad_recs)
+
+# ── 9. Build interactive map ─────────────────────────────────────────────
+print("🌐 Building map…")
+center = zone1.representative_point()
+m = folium.Map(location=[center.y, center.x], zoom_start=12, tiles="cartodbpositron")
+
+# Zone 1 overlay
+folium.GeoJson(
+    zone1.__geo_interface__,
+    name="Zone 1",
+    style_function=lambda _: {
+        "fillColor": "#FFA500",
+        "color": "#FF4500",
+        "weight": 3,
+        "fillOpacity": 0.3,
+    },
+    tooltip="Zone 1",
+).add_to(m)
+
+# Address markers
+for rec in good_recs:
+    pt = rec["point"]
+    html = (
+        f"<b>{rec['name']}</b><br>"
+        f"Acct #: {rec['acct']}<br>"
+        f"Container: {rec['size']}<br>"
+        f"Service: {rec['svc']}<br>"
+        f"{rec['street']}<br>{rec['city']}"
+    )
+    colour = "blue" if rec["inside_zone"] else "red"
+    folium.Marker(
+        [pt.y, pt.x],
+        popup=folium.Popup(html, max_width=260, min_width=200),
+        icon=folium.Icon(color=colour, icon="home"),
+    ).add_to(m)
+
+folium.LayerControl().add_to(m)
+m.save(OUT_HTML)
+print(f"✓ {OUT_HTML} written")
+
+print("✅ Done – open the HTML map to view results.")

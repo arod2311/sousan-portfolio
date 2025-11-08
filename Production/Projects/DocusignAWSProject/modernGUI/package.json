@@ -1,0 +1,29 @@
+{
+  "name": "modern-gui-portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch:sheets": "node scripts/pull-service-slips.mjs"
+  },
+  "dependencies": {
+    "googleapis": "^129.0.0",
+    "@tanstack/react-query": "^5.59.0",
+    "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.2",
+    "@vitejs/plugin-react": "^4.3.2",
+    "typescript": "^5.5.4",
+    "vite": "^7.1.12"
+  }
+}

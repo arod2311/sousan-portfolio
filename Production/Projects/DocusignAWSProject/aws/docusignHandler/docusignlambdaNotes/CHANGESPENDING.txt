@@ -1,0 +1,85 @@
+$PROFILE_NAME="lambda-admin"; $REGION="us-east-1"; $FUNCTION="DocuSignConnectHandler"
+Set-Location C:\Users\arodriguez\Documents\repoProjects\sousan\Production\Projects\DocusignAWSProject\aws\docusignHandler\docusign-lambda
+npm init -y
+npm install xml2js googleapis docusign-esign
+Compress-Archive -Path index.js, node_modules -DestinationPath function.zip -Force
+aws lambda update-function-code --function-name DocuSignConnectHandler --zip-file fileb://function.zip --region us-east-1 --profile lambda-admin --publish
+aws logs tail /aws/lambda/$FUNCTION --follow --profile $PROFILE_NAME --region $REGION
+
+
+
+
+Roll-Off Contract - New Contract
+-TemplateID: 1d3f0ae3-0fc8-4fe9-b774-55c5d0f08736
+Envelope Custom Fields
+EnvelopeType:
+ServiceAgreements
+Envelope Type:
+ServiceAgreements
+Subject
+[[New Roll Off Customer_UserName]] Complete with DocuSign: Roll_Off_Contract
+
+
+
+Roll-Off Contract - New Contract - In Person
+-TemplateID: f786fb4b-3058-4307-89ad-518eccc8f9ef
+
+
+
+
+New Roles:
+New Front Load Client - In Person
+New Roll Off Client
+New Roll Off Client - In Person
+
+Contracts:
+Name: Front-Load Contract - New Contract
+TemplateID: 1eda2cbe-0073-4340-9bfe-d3aac29591b7
+
+----------------------NEED TO ADD--------------------------------------------------------
+Name: Roll-Off Contract - New Contract
+TemplateID: 1d3f0ae3-0fc8-4fe9-b774-55c5d0f08736
+Order (Roles): 
+1. SS Sales Rep
+2. New Roll Off Client
+3. Generate Trux Account Number
+4. Trux input - Account # Verification
+5. New Roll Off Client
+
+--In-Person--
+Name: Front-Load Contract - New Contract - In Person
+TemplateID: 57eeb65d-e350-4a13-9968-9c5b5318798d
+Order (Roles): 
+1. SS Sales Rep
+2. New Front Load Client - In Person
+--2a. Host Name: Southern Sanitation Host Email: ss.docu@southernsanitation.com
+3. Generate Trux Account Number
+4. Trux input - Account # Verification
+5. New Front Load Client
+
+Name: Roll-Off Contract - New Contract - In Person
+TemplateID: f786fb4b-3058-4307-89ad-518eccc8f9ef
+Order (Roles): Trux input - Account # Verification
+1. SS Sales Rep
+2. New Roll Off Client - In Person
+--2a. Host Name: Southern Sanitation Host Email: ss.docu@southernsanitation.com
+3. Generate Trux Account Number
+4. Trux input - Account # Verification
+5. New Roll Off Client
+
+
+
+Also, ask GPT:
+
+I am adding 3 more contract templates, pasted below. Before giving me instructions, there are 2 contact template id's that are for in-person signing, does this affect the set up? 
+The contract we have are either Roll Off clients or Front-Load clients, below I have put the information,
+Need to modify the Google Sheets to add columns: 
+ContractType - Roll off or Contact - way to get info from the new template ID's?
+Need to eliminate: E - ServiceRep
+When selecting DeliveryDriveName it does not autopopulate email.
+Need to store and add SlipLink - ok to move SlipLink Column AE to end -> AF and move InitiateSlip (Checkbox from AF to AE)
+
+How to change ssh passphrase
+
+
+@threatdown.com
