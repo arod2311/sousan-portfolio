@@ -1,0 +1,32 @@
+# Node / Frontend
+node_modules/
+.next/
+dist/
+out/
+.vercel/
+
+# Python / Virtualenvs
+**/venv/
+**/.venv/
+**/Lib/
+**/Scripts/
+**/site-packages/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Env / keys / archives
+.env
+.env.*
+*.pem
+*.pfx
+*.p12
+*.crt
+*.key
+*.cer
+*.db
+*.sqlite
+*.tgz
+*.zip
