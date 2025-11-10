@@ -30,3 +30,8 @@ Thumbs.db
 *.sqlite
 *.tgz
 *.zip
+
+# Secrets
+*.service-account.json
+*.serviceaccount.json
+*docusign*\.json
